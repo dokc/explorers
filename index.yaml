@@ -1,9 +1,12 @@
-apiVersion: v1
+apiVersion: v2
 entries:
-  dokc-chart:
-    - apiVersion: v1
+  k8s-lightweight:
+    - apiVersion: v2
       name: "Data on Kuberenetes K8ssandra Chart"
-      home: https://github.com/AbhijithGanesh/dokc-helm-chart
-      description: "A chart for making k8ssandra simple. You can read about how to use them here in this ."
-
+      home: https://github.com/dokc/Helm-Charts.git
+      description: "A lightweight chart for K8ssandra operator."
+      maintainers:
+          name: Data on Kuberenetes Community
+          community: https://dokcommunity.slack.com/join/shared_invite/zt-10v7uncvp-jNFwulsVWvUO0SKMDTjwAw#/shared-invite/email
+      
 generated: "2022-02-01T16:32:21.7893764+05:30"
