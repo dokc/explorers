@@ -33,7 +33,7 @@ git push
 At this point, you should switch back to the `main` branch in your repository, and make sure it is up to date with `main` branch of how-to-dok:
 
 ```bash
-git remote add upstream git@github.com:dokc/how-to-dok.git
+git remote add upstream git@github.com:dokc/Helm-Charts.git
 git checkout main
 git pull upstream main
 ```
