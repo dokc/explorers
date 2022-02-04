@@ -1,6 +1,7 @@
 # dokc-helm-chart
 Custom K8ssandra operator for Data on Kuberenetes' how-to-dok project.
 
+
 ## Contributing
 Please refer to the [contributing-guidelines](https://github.com/dokc/Helm-Charts/blob/master/CONTRIBUTING.md)
 
