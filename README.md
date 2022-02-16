@@ -79,7 +79,7 @@ stargate:
   
 ```
 
-To run the cluster, execute the following command: helm install -f <filename>.yaml <Instance Name (or) Cluster Name> dokc/k8s-lightweight
+To run the cluster, execute the following command: helm install -f < filename >.yaml <Instance Name (or) Cluster Name> dokc/k8s-lightweight
 
 ** The process should roughly take 4 minutes , wait for the pods to start up **
 
