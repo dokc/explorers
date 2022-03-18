@@ -3,7 +3,7 @@
 # Data on Kubernetes
 
 DoKC is an openly governed group of curious and experienced practitioners, taking inspiration from the CNCF and Apache Software Foundation. Born in spring 2020 our aim is to assist in the emergence and development of techniques for the use of Kubernetes for data.
-# The how-to-dok project
+# The Rap-god project
 This project is about:
 - Using cloud-native data services on Kubernetes
 - Using a cloud-native database on Kubernetes for storing data
@@ -11,9 +11,13 @@ This project is about:
 - Showing how a simple app or script can be used on Kubernetes as part of a data pipeline
 - Showing how to develop custom code components for use in Kubernetes
 - Showing which depending services you might encounter and need when wanting to start running data workloads on Kubernetes
+
 ### The plan:
+
 We have now decided that we will be following the incremental development model where we start with adding basic features to the project and slowly start adding features on top of it. We have divided the teams into working groups for improving the workflow and ensure progress in the project development.
+
 ### What are working groups?
+
 Working groups are a team of few contributors who’d specifically focus on the specific topic/mandate of the working group. A working group, or working party, is a group of contributors working together to achieve specified goals. The groups are domain-specific and focus on discussion or activity around a specific subject area. The term can sometimes refer to an interdisciplinary collaboration of researchers working on new activities/tasks.
 The working gropus that are currently active:
 - Operations and Workflows
@@ -21,30 +25,40 @@ The working gropus that are currently active:
 - Testing and Integration
 - Website and Documentation Maintenance
 - Databases (Tempoarary)
+
 #### Operations:
+
 ###### Targets:
 - The establishment of various GitHub actions that’d test incoming changes
 - The creation of various artifacts (dependencies) management services through Docker/Podman or any other containerization service
 - Overseeing deployment of various services that are being built
 - DevOpsifying the whole setup
+
 #### Testing:
+
 ###### Targets:
 - Write tests for addition of each endpoint.
 - Maintenance of tests.
+
 #### Operations:
+
 ###### Targets:
 - The establishment of various GitHub actions that’d test incoming changes
 - The creation of various artifacts (dependencies) management services through Docker/Podman or any other containerization service
 - Overseeing deployment of various services that are being built
 - DevOpsifying the whole setup
 #### Website:
+
 ###### Targets:
 - Maintaining this website:wink:
 - Updating the documentation of various changes that are made in the repository
 - Overseeing the design changes of the website
 - Coordinating with the dev-rel team with changes
+
 ### Proposed Architecture
 ![proposed architecture](static/how_to_dok_proposed_architecture.png)
+
+
 ### Components
 - **Rap as configuration (Rap as Code - RaC)**
   This concerns the input data for our pipeline. We want to move data around rap lyrics, artists, meetups, etc through our data pipeline to destinations.
@@ -63,11 +77,15 @@ The working gropus that are currently active:
 - **Build and release pipeline for releasing container image**
   How do we ensure we get our container image built and released automatically? So, that the services in our cluster can use it via CI/CD. <br />
   CI/CD can be an interesting topic itself per component, but let us focus on one use case first.
+
 ### Database Schema
 ![Database Schema](resources/database/ERD.png)
+
+
 #### What should the outcome or products of this project be?
 Ideally, what we are looking for is documentation, best practices, example resources (code, k8s resource definitions), tutorials on how to achieve running a cloud-native data workflow on Kubernetes.
 Together this should provide an overview of how to run cloud-native data workflows on Kubernetes.
+
 ### Knowledge needed
 We can identify some specific knowledge areas
 - Node.js and Express.js
@@ -79,8 +97,10 @@ We can identify some specific knowledge areas
 - Github workflow
 - Local GIT flow
 - CI/CD Automation
+
 ### Resources
 Here is a list of resources/tutorials and blogs created by this community.
+
 ### Contributing
 This section contains information on how to start contributing to this project
 Contributing areas:
@@ -92,6 +112,7 @@ Contributing areas:
 - Data schema / Data models
 - Data input files (DoK Rap lyrics)
 - Visual (graphs, drawings, designs, video)
+
 ### Contact
 Check out the [DoK Slack channel](https://dokcommunity.slack.com/archives/C029SP0H937) for updates and discussion.
 Checkout out the [Dok YouTube channel](https://www.youtube.com/channel/UCUnXJbHQ89R2uSfKsqQwGvQ) for more information, talks, discussions, and raps!!!
