@@ -1,4 +1,4 @@
-![](https://dok.community/wp-content/uploads/2021/03/WebKubernetes-estrecho.png “Data on Kubernetes”)
+![“Data on Kubernetes”](https://dok.community/wp-content/uploads/2021/03/WebKubernetes-estrecho.png)
 
 # Data on Kubernetes
 
