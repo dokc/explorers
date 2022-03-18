@@ -24,3 +24,5 @@ We have now decided that we will be following the incremental development model 
 ### What are working groups?
 
 Working groups are a team of few contributors who’d specifically focus on the specific topic/mandate of the working group. A working group, or working party, is a group of contributors working together to achieve specified goals. The groups are domain-specific and focus on discussion or activity around a specific subject area. The term can sometimes refer to an interdisciplinary collaboration of researchers working on new activities/tasks.
+
+Connect with us on slack - https://go.dok.community/slack
