@@ -18,11 +18,22 @@ spec:
         - name: {{ .Values.metadata.name}}-volume
           persistentVolumeClaim:
             claimName: {{ .Values.metadata.name }}-claim
-
      containers:
       - name:  "test-container"
         image: {{ .Values.database.image }}
         imagePullPolicy: {{ .Values.database.pullPolicy }}
         ports:
             - containerPort: {{.Values.database.port}}
-              name: {{.Values.database.name}}
+              name: {{.Values.database.cassandra.cql_name}} 
+            - containerPort: 7199
+              name: jmx
+        env:
+          - name: CASSANDRA_SEED_PROVIDER
+            value: "org.apache.cassandra.locator.SimpleSeedProvider"
+          - name: CASSANDRA_CLUSTER_NAME
+            value: {{.Values.database.cassandra.clusterName}}
+          - name: CASSANDRA_DC
+            value: {{ .Values.database.cassandra.datacenter }}
+          - name: CASSANDRA_RACK
+            value: {{ .Values.database.cassandra.rack}}   
+          

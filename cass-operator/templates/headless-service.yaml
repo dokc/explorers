@@ -6,5 +6,5 @@ spec:
   selector:
     app: {{ .Values.metadata.name}}
   ports:
-  - port:  {{ .Values.database.port}}
-    targetPort: {{ .Values.database.port}}
+    - port:  {{ .Values.database.port}}
+      name: cql
