@@ -1,2 +1,2 @@
-# how-to-dok-client
-Repository for the how-to-dok client.
+# rap-god-client
+Repository for the rap-god client.
