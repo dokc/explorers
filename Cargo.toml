@@ -1,0 +1,10 @@
+[package]
+name = "cassey"
+version = "0.1.0"
+edition = "2021"
+authors = ["Abhijith Ganesh"]
+license = "AGPLv3"
+
+[dependencies]
+clap = { version = "3.1.6", features = ["derive"] }
+colored = "2.0.0"
