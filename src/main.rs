@@ -1,6 +1,7 @@
 use clap::{Arg, ArgMatches, Command};
 mod cli {
     pub mod initializer;
+    pub mod formatted_text;
 }
 
 pub fn configurator() -> [Command<'static>; 1] {
@@ -37,6 +38,9 @@ fn main() {
         .unwrap()
         == "new"
     {
-        cli::initializer::create();
+        match cli::initializer::create() {
+            Err(e) => println!("{:?}", e),
+            _ => (),
+        }
     }
 }

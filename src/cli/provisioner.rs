@@ -1,30 +1,35 @@
+use super::formatted_text;
 use colored::Colorize;
 use derive;
+use serde::{Deserialize, Serialize};
+use std::fs::{File, OpenOptions};
 use std::io;
+use std::io::Write;
 
-#[derive(Debug)]
+#[derive(Debug, Serialize, Deserialize)]
 pub struct ProtocolOptions {
-    _port: u32,
+    pub port: u32,
 }
-#[derive(Debug)]
+
+#[derive(Debug, Serialize, Deserialize)]
 pub struct QueryOptions {
-    _consistency: String,
+    pub consistency: String,
 }
 
-#[derive(Debug)]
+#[derive(Debug, Serialize, Deserialize)]
 pub struct SocketOptions {
-    _read_timeout: u64,
+    pub read_timeout: u64,
 }
 
-#[derive(Debug)]
+#[derive(Debug, Serialize, Deserialize)]
 pub struct ExpressConnection {
-    _size_of_contact_points: u8,
-    _contact_points: Vec<String>,
-    _localdatacenter: String,
-    _keyspace: String,
-    _protocol_options: ProtocolOptions,
-    _socket_options: SocketOptions,
-    _query_options: QueryOptions,
+    pub size_of_contact_points: u8,
+    pub contact_points: Vec<String>,
+    pub localdatacenter: String,
+    pub keyspace: String,
+    pub protocol_options: ProtocolOptions,
+    pub socket_options: SocketOptions,
+    pub query_options: QueryOptions,
 }
 
 pub fn constructor(
@@ -37,13 +42,13 @@ pub fn constructor(
     queryopt: QueryOptions,
 ) -> ExpressConnection {
     ExpressConnection {
-        _size_of_contact_points: size,
-        _contact_points: contact,
-        _localdatacenter: localdc,
-        _keyspace: keyspace,
-        _socket_options: socketopt,
-        _protocol_options: protoc_options,
-        _query_options: queryopt,
+        size_of_contact_points: size,
+        contact_points: contact,
+        localdatacenter: localdc,
+        keyspace: keyspace,
+        socket_options: socketopt,
+        protocol_options: protoc_options,
+        query_options: queryopt,
     }
 }
 
@@ -94,7 +99,7 @@ pub fn construct_express() -> ExpressConnection {
     println!("{}", format!("{}", "Enter the port number").yellow());
     io::stdin().read_line(&mut _ports).expect("Failed to read");
     let prot_instance: ProtocolOptions = ProtocolOptions {
-        _port: _ports.trim().parse().unwrap(),
+        port: _ports.trim().parse().unwrap(),
     };
     println!(
         "{}",
@@ -105,7 +110,7 @@ pub fn construct_express() -> ExpressConnection {
         .read_line(&mut query_inst)
         .expect("Failed to read");
     let queryopt_inst: QueryOptions = QueryOptions {
-        _consistency: query_inst.trim().to_string(),
+        consistency: query_inst.trim().to_string(),
     };
     println!(
         "{}",
@@ -116,7 +121,7 @@ pub fn construct_express() -> ExpressConnection {
         .read_line(&mut sockt_inst)
         .expect("Failed to read");
     let socktoptions_inst: SocketOptions = SocketOptions {
-        _read_timeout: sockt_inst.trim().parse().unwrap(),
+        read_timeout: sockt_inst.trim().parse().unwrap(),
     };
     let query_recognized: ExpressConnection = constructor(
         size,
@@ -130,7 +135,7 @@ pub fn construct_express() -> ExpressConnection {
     return query_recognized;
 }
 
-pub fn create() {
+pub fn create() -> std::io::Result<()> {
     println!("This configurator will configure your Express-Cassandra database connection\n");
     let message: String = String::from(
         "Welcome to the constructor, the constructor will construct the client for you.\nThe client will be structured according to the example",
@@ -145,12 +150,10 @@ pub fn create() {
         vec![String::from("127.0.7.1")],
         String::from("datacenter"),
         String::from("test_keyspace"),
-        SocketOptions {
-            _read_timeout: 6000,
-        },
-        ProtocolOptions { _port: 80 },
+        SocketOptions { read_timeout: 6000 },
+        ProtocolOptions { port: 80 },
         QueryOptions {
-            _consistency: String::from("ExpressCassandra.consistencies.one"),
+            consistency: String::from("ExpressCassandra.consistencies.one"),
         },
     );
     println!("{:#?}", instance);
@@ -181,4 +184,14 @@ pub fn create() {
         );
         io::stdin().read_line(&mut cmd).expect("Failed to read");
     }
+    let mut file: File = OpenOptions::new()
+        .read(true)
+        .write(true)
+        .create(true)
+        .append(false)
+        .open("./serde.js")
+        .unwrap();
+
+    file.write(formatted_text::text(data).as_bytes())?;
+    Ok(())
 }
