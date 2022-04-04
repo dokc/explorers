@@ -1,6 +1,6 @@
-use super::initializer;
+use super::provisioner;
 
-pub fn text(data: initializer::ExpressConnection) -> String {
+pub fn text(data: provisioner::ExpressConnection) -> String {
     let code: String = format!(
         "
 import {{ setDirectory, consistencies }} from  'express-cassandra'

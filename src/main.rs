@@ -1,17 +1,19 @@
 use clap::{Arg, ArgMatches, Command};
 mod cli {
-    pub mod initializer;
     pub mod formatted_text;
+    pub mod provisioner;
 }
 
-pub fn configurator() -> [Command<'static>; 1] {
+pub fn configurator() -> [Command<'static>; 2] {
     return [Command::new("config")
         .short_flag('c')
         .about("Helps you configure Express-Cassandra")
         .args(&[Arg::new("construct_new_connector")
             .short('n')
-            .help("Construct a new connection with the new tag. Cassey -c -n new")
-            .takes_value(true)])];
+            .long("new")
+            .help("Constructs the file according to your preference, run new for constructing a new file from scratch or run default as Cassey -c -n new/default")
+            .takes_value(true)]),
+            Command::new("test").short_flag('t').about("Tests your connection in your respective environment")];
 }
 
 fn main() {
@@ -24,23 +26,29 @@ fn main() {
         )
         .subcommands(configurator())
         .get_matches();
-    println!(
-        "{:#?}",
-        cli.subcommand_matches("config")
+    {
+        if cli
+            .subcommand_matches("config")
             .unwrap()
             .value_of("construct_new_connector")
             .unwrap()
-    );
-    if cli
-        .subcommand_matches("config")
-        .unwrap()
-        .value_of("construct_new_connector")
-        .unwrap()
-        == "new"
-    {
-        match cli::initializer::create() {
-            Err(e) => println!("{:?}", e),
-            _ => (),
+            == "new"
+        {
+            match cli::provisioner::create() {
+                Err(e) => println!("{:?}", e),
+                _ => (),
+            }
+        } else if cli
+            .subcommand_matches("config")
+            .unwrap()
+            .value_of("construct_new_connector")
+            .unwrap()
+            == "default"
+        {
+            match cli::provisioner::default() {
+                Err(e) => println!("{:#?}", e),
+                _ => (),
+            }
         }
     }
 }

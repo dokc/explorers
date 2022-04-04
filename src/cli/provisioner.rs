@@ -189,9 +189,71 @@ pub fn create() -> std::io::Result<()> {
         .write(true)
         .create(true)
         .append(false)
-        .open("./serde.js")
+        .open("./connection.js")
         .unwrap();
 
     file.write(formatted_text::text(data).as_bytes())?;
+    Ok(())
+}
+
+pub fn default() -> std::io::Result<()> {
+    println!("This configurator will configure your Express-Cassandra database connection\n");
+    let message: String = String::from(
+        "Welcome to the constructor, the constructor will construct the client for you.\nThe client will be structured according to the example",
+
+    );
+    println!("{}", format!("{}", message).green());
+
+    println!("\nCheck the example down below\n");
+    let code: String = String::from(
+        r"
+import { setDirectory, consistencies } from 'express-cassandra'
+
+setDirectory(__dirname + '/models').bind(
+  {
+    clientOptions: {
+      contactPoints: ['127.0.0.1'],
+      localDataCenter: 'datacenter1',
+      protocolOptions: { port: 9042 },
+      keyspace: 'CassTest',
+      queryOptions: { consistency: consistencies.one },
+      socketOptions: { readTimeout: 0 },
+    },
+    ormOptions: {
+      defaultReplicationStrategy: {
+        class: 'SimpleStrategy',
+        replication_factor: 1,
+      },
+      migration: 'safe',
+    },
+  },
+  function (err) {
+    if (err) throw err
+    else {
+      console.log('Database successfully connected at port 9042')
+    }
+  }
+)
+
+        ",
+    );
+    println!("{}", format!("{}", code).yellow());
+
+    println!("\n\n\n{}", format!("{}", "Enter Y for this code").green());
+    let mut command: String = String::from("");
+    io::stdin()
+        .read_line(&mut command)
+        .expect("Failed to read line");
+    if command.trim() == "Y" {
+        let mut file: File = OpenOptions::new()
+            .read(true)
+            .write(true)
+            .create(true)
+            .append(false)
+            .open("./connection.js")
+            .unwrap();
+        println!("{}", code);
+        file.write(code.as_bytes())?;
+    }
     Ok(())
 }
