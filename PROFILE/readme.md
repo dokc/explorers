@@ -3,7 +3,7 @@
 
 DoKC is an openly governed group of curious and experienced practitioners, taking inspiration from the CNCF and Apache Software Foundation. Born in spring 2020 our aim is to assist in the emergence and development of techniques for the use of Kubernetes for data.
 
-![Data on Kubernetes](https://dok.community/wp-content/uploads/2021/03/dokc_inv-logo-longform-color.png)
+![Data on Kubernetes](https://dok.community/img/dokc-logo-white.svg)
 
 
 # The Rap-god  project
