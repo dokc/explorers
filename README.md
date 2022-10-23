@@ -70,17 +70,17 @@ Checkout out the [Dok YouTube channel](https://www.youtube.com/channel/UCUnXJbHQ
         </a>
     </td>
     <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
-        <a href=https://github.com/coldn00dles>
-            <img src=https://avatars.githubusercontent.com/u/93096256?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=Ashutosh />
-            <br />
-            <sub style="font-size:14px"><b>Ashutosh </b></sub>
-        </a>
-    </td>
-    <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
         <a href=https://github.com/icebelly29>
             <img src=https://avatars.githubusercontent.com/u/68722494?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=Nikhil Nair/>
             <br />
             <sub style="font-size:14px"><b>Nikhil Nair</b></sub>
+        </a>
+    </td>
+    <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
+        <a href=https://github.com/coldn00dles>
+            <img src=https://avatars.githubusercontent.com/u/93096256?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=Ashutosh />
+            <br />
+            <sub style="font-size:14px"><b>Ashutosh </b></sub>
         </a>
     </td>
     <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
