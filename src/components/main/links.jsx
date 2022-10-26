@@ -31,7 +31,7 @@ const Links = () => {
           <section className="text-white">
             <LinkHolder
               text="Guide to Open Source"
-              link="/guide-to-opensource"
+              link="/guide-to-open-source"
               icon={<RiOpenSourceLine />}
             />
             <LinkHolder
