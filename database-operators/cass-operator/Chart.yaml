@@ -1,0 +1,10 @@
+# Written by Abhijith Ganesh @ DoK Community 2022.
+apiVersion: v2
+name: cass-operator
+description: A Helm chart for Kubernetes
+type: application
+maintainers:
+  - name: DoK Community
+    url: https://dok.community
+version: 0.1.0
+appVersion: "1.16.0"

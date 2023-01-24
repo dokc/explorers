@@ -1,0 +1,11 @@
+Deployed ! Notes from Abhijith Ganesh
+
+Details of the deployment:
+A persistent volume will be created --> Deepends on the spec of your values.yaml
+A PVC for the same will be auto-generated and connnected to the Persistent Volume
+A pod will have the statefulset.
+
+WARNING: EVERY TIME YOU DEPLOY THE CHART, IT WILL GENERATE A PERSISTENT VOLUME 
+THIS WILL NOT BE DELETED WHEN YOU REMOVE THE CHART! YOU MUST MANUALLY REMOVE THEM.
+
+RUN: kubectl delete pv <your pv name>

@@ -1,0 +1,75 @@
+replicaCount: 1
+
+metadata:
+  name: "test-deployment"
+  annotations: {}
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  create: false
+  annotations: {}
+  name: ""
+
+podAnnotations: {}
+
+podSecurityContext: {}
+
+securityContext:
+  {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+ingress:
+  enabled: false
+  className: ""
+  annotations: {}
+  hosts:
+    - host: chart-example.local
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
+
+resources: {}
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+database:
+  image: cassandra:latest
+  pullPolicy: Always
+  replicas: 1
+  name: "cql"
+  port: 9042
+  cassandra:
+    datacenter: "dc-1"
+    rack: "rack-1"
+    clusterName: "clstr-1"
+
+volumeClaim:
+  accessModes: ["ReadWriteOnce"]
+  storageclass: "test-storage-class"
+  storagesize: "1Gi"
+  restartPolicy: "Never"
+  retainPolicy: "Retain"
+  reclaimPolicy: Delete

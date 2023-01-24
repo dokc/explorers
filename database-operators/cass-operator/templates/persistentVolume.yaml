@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: {{ .Values.metadata.name }}
+spec:
+  claimRef:
+    name: {{ .Values.metadata.name }}-claim
+  capacity:
+    storage: 3Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: {{ .Values.volumeClaim.reclaimPolicy}}
+  storageClassName: {{ .Values.volumeClaim.storageclass }}
+  mountOptions:
+    - ssd
+    - nfsvers=4.1
+  nfs:
+    path: /tmp
+    server: 172.17.0.2
